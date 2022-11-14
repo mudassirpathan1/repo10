@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+   <center>
+    <link rel="stylesheet" type="text/css" href="task.css" >
+    <body>
+    <header> 
+        <h1>Js code</h1>
+    </header>
+    
+
+    <section class ="container">
+<box>
+<form id="my-form">
+<h1>Add user</h1>
+<div class="msg"></div>
+<div>
+
+    <label for="name">Name</label>
+    <input type="text" id="name">
+</div>
+<div>
+    <label for="email">Email</label>
+    <input type="text" id="email">
+
+</div>
+ <input class="btn" type="submit" value="submit">
+
+</form>
+</box>
+<ul id="users"></ul>
+    </section>
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> -->
+
+
+    <script src="task.js">
+
+    </script>
+</body>
+</center>
+</html>
+
+
+
+<-------js file------>
+
+const myForm=document.querySelector('#my-form');
+const nameInput=document.querySelector('#name');
+const emailInput=document.querySelector('#email');
+const msg=document.querySelector('.msg');
+const userList=document.querySelector('#users');
+myForm.addEventListener('submit', onsubmit);
+
+function onSubmit(e){
+    e.preventDefault();
+    if(nameInput.value===''|| emailInput.value===''){
+
+    
+msg.classList.add('error');
+msg.innerHTML='please enter fields';
+
+setTimeout(()=> msg.remove(),3000);
+
+}else{
+    const li=document.createElement('li');
+    li.appendChild(documentTextNode(`${nameInput.value} : ${emailInput.value}`));
+
+    userList.appendChild(li);
+
+    // clear fields
+
+    nameInput.value='';
+    emailInput.value='';
+}
+}
+
+
+<---------------css file------------>
+
+
+body{
+  
+    font-family: sans-serif;
+}
+.loginbox{
+    width: 290px;
+    height: 450px;
+    background:black;
+    color :#fff;
+    top : 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 40px 15px;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+
+
+
